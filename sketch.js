@@ -13,7 +13,7 @@ var no = 0;
 
 
 function preload() {
-  monkeyimage = loadAnimation("Monkey_02.png", "Monkey_01.png", "Monkey_04.png", "Monkey_06.png", "Monkey_05.png", "Monkey_07.png", "Monkey_09.png", "Monkey_08.png", "Monkey_10.png");
+  monkeyimage = loadAnimation("Monkey_03.png", "Monkey_02.png", "Monkey_01.png", "Monkey_04.png", "Monkey_06.png", "Monkey_05.png", "Monkey_07.png", "Monkey_09.png", "Monkey_08.png", "Monkey_10.png");
   stoneimage = loadImage("stone.png");
   bananaimage = loadImage("Banana.png");
   gameoverimage = loadImage("gameOver.png");
