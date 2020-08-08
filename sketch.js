@@ -10,10 +10,11 @@ var gamestate = 1;
 var score = 0;
 var jump = "jump";
 var no = 0;
+var button;
 
 
 function preload() {
-  monkeyimage = loadAnimation("Monkey_03.png", "Monkey_02.png", "Monkey_01.png", "Monkey_04.png", "Monkey_06.png", "Monkey_05.png", "Monkey_07.png", "Monkey_09.png", "Monkey_08.png", "Monkey_10.png");
+  monkeyimage = loadAnimation("Monkey_03.png" , "Monkey_02.png", "Monkey_01.png", "Monkey_04.png", "Monkey_06.png", "Monkey_05.png", "Monkey_07.png", "Monkey_09.png", "Monkey_08.png", "Monkey_10.png");
   stoneimage = loadImage("stone.png");
   bananaimage = loadImage("Banana.png");
   gameoverimage = loadImage("gameOver.png");
@@ -62,6 +63,9 @@ function setup() {
   restart = createSprite(300, 200);
   restart.addImage("restart", restartimage)
   restart.visible = false;
+  
+  button = createSprite(70, 90, 70, 70)
+  button.shapeColor="pink";
 }
 
 
@@ -80,7 +84,8 @@ function draw() {
 
     back.visible = true;
     back2.visible = true;
-
+    button.visible = true;
+    
     banana.velocityX = -(score / 100 + 8);
 
     if (banana.isTouching(monkey)) {
@@ -92,7 +97,7 @@ function draw() {
       banana.x = 700;
       banana.y = random(120, 190);
     }
-    if (keyDown("space") && monkey.collide(ig)) {
+    if (keyDown("space")|| mousePressedOver(button) && monkey.collide(ig)) {
       monkey.velocityY = -8;
       no +=1;
     }
@@ -137,6 +142,7 @@ function draw() {
   text("Jumps: "+ no, 450,40);
 
   if (gamestate == 2) {
+    button.visible= false;
     back.visible = false;
     back2.visible = false;
     sg.setVelocityXEach(0);
@@ -171,3 +177,4 @@ function draw() {
     }
   }
 }
+
